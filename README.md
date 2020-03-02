@@ -20,7 +20,7 @@ You need to provide the following parameters for the function to operate properl
    [Azure Functions scale and hosting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)
 * Premium Hosting Instance Size              - "EP1", "EP2", or "EP3".  
    
-   If you select "Premium", then this setting determines the size of the instances. For details refer: 
+   If you select "Premium", then this setting determines the size of the instance. For details refer: 
    [Azure Functions Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan)  
 * NSG Source Account          - the connection string of the storage account having the NSG log flows.  
    Example: ```DefaultEndpointsProtocol=https;AccountName=yyy;AccountKey=xxx;EndpointSuffix=core.windows.net```  
@@ -29,6 +29,7 @@ You need to provide the following parameters for the function to operate properl
 * Splunk HEC Token                 - guid security token for Splunk HEC  
    Example: ```a77fdc21-0861-4d8b-941c-e1b4c556b4fb```
 
+*Some sample values (that I was using for testing) have been left as default values. Will remove them later.*
 
 ## Resources Deployed
 
