@@ -1,7 +1,9 @@
-# Positka: NSG Logs to Splunk 
+# Positka: NSG Flow Logs to Splunk 
 
 
 The button below automates the process of deploying an Azure Function in your Azure account.
+
+
 This Azure Function monitors the "NSG Flow Logs" and sends them to Splunk.
 
 
@@ -10,12 +12,14 @@ This Azure Function monitors the "NSG Flow Logs" and sends them to Splunk.
 
 ## Settings
 
-The Function needs the following parameters to operate properly:
+You need to provide the following parameters for the function to operate properly:
 
 * Function Hosting Plan Type                     - "Consumption" or "Premium". 
+   
    The Function can be hosted either on a Consumption plan or on a Premium Plan. For details refer: 
    [Azure Functions scale and hosting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)
 * Premium Hosting Instance Size              - "EP1", "EP2", or "EP3".  
+   
    If you select "Premium", then this setting determines the size of the instances. For details refer: 
    [Azure Functions Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan)  
 * NSG Source Account          - the connection string of the storage account having the NSG log flows.  
@@ -24,6 +28,7 @@ The Function needs the following parameters to operate properly:
    Example: ```http://splunk_ip_address:8088/services/collector/event```  
 * Splunk HEC Token                 - guid security token for Splunk HEC  
    Example: ```a77fdc21-0861-4d8b-941c-e1b4c556b4fb```
+
 
 ## Resources Deployed
 
@@ -38,9 +43,10 @@ The following resources are deployed:
 
 The xxx... is a unique string composed using the subscription ID and the resource group ID.
 
+
 ## Billing
 
-Kindly note that the resources deployed above are chargeable and the cost for these will be added by Microsoft to your Azure billing.
+Kindly note that the Azure resources deployed above are chargeable and the cost for these will be added by Microsoft to your Azure billing.
 
 ## Deployment Errors
 In case of any deployment errors:
