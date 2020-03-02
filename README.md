@@ -1,40 +1,54 @@
 # Positka: NSG Logs to Splunk 
 
 
-This project installs into an Azure Function in your Azure subscription. Its job is to read NSG Flow Logs from your configured storage account, break the data into chunks that are the right size for your log analytics system to ingest, then transmit the chunks to that system. At present, you may choose from four output bindings: ArcSight, LogStash, Splunk HEC, Event Hub.  
+The button below automates the process of deploying an Azure Function in your Azure account.
+This Azure Function monitors the "NSG Flow Logs" and sends them to Splunk.
 
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgupta%2Fpositka%2Fmaster%2Fazuredeploy.json)
 
 
+## Settings
 
-# Settings
+The Function needs the following parameters to operate properly:
 
-In the Application Settings of your Azure Function:
-* AppName                     - this is the name of the function app. In the Azure Portal, this is the name that will appear in the list of resources.  
-   Example: ```MyNSGApp```  
-* appServicePlan              - "Consumption" or "Premium".  
-   If you select "ServicePlan", an App Service Plan will be created and you will be billed accordingly. If you select "Consumption", you will be billed based on the Consumption plan.  
-* appServicePlanTier          - "Free", "Shared", "Basic", "Standard", "Premium", "PremiumV2"  
-   Example: ```Standard```  
-   (only relevant for ServicePlan)  
-* appServicePlanName          - depends on tier, for full details see "Choose your pricing tier" in the portal on an App service plan "Scale up" applet.  
-   Example: For standard tier, "S1", "S2", "S3" are options for plan name  
-   (only relevant for ServicePlan)  
-* appServicePlanCapacity      - how many instances do you want to set for the upper limit?  
-   Example: For standard tier, S2, set a value from 1 to 10  
-   (only relevant for ServicePlan)  
-* githubRepoURL                     - this is the URL of the repo that contains the function app source. You would put your fork's address here.  
-   Example: ```https://github.com/microsoft/AzureNetworkWatcherNSGFlowLogsConnector```  
-* githubRepoBranch                  - this is the name of the branch containing the code you want to deploy.  
-   Example: ```master```  
-* nsgSourceDataConnection     - a storage account connection string  
+* Function Hosting Plan Type                     - "Consumption" or "Premium". 
+   The Function can be hosted either on a Consumption plan or on a Premium Plan. For details refer: 
+   [Azure Functions scale and hosting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale)
+* Premium Hosting Instance Size              - "EP1", "EP2", or "EP3".  
+   If you select "Premium", then this setting determines the size of the instances. For details refer: 
+   [Azure Functions Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan)  
+* NSG Source Account          - the connection string of the storage account having the NSG log flows.  
    Example: ```DefaultEndpointsProtocol=https;AccountName=yyy;AccountKey=xxx;EndpointSuffix=core.windows.net```  
-* cefLogAccount               - a storage account connection string - account into which trace logs of incoming json and outgoing cef are dropped  
-   Example: ```DefaultEndpointsProtocol=https;AccountName=yyy;AccountKey=xxx;EndpointSuffix=core.windows.net```  
-* splunkAddress               - internet address of the Splunk HEC port.  
-   Example: ```http://mysplunkbox.uksouth.cloudapp.azure.com:8088/services/collector```  
-* splunkToken                 - guid security token for Splunk HEC  
+* Splunk HEC Address               - internet address of the Splunk HEC port.  
+   Example: ```http://splunk_ip_address:8088/services/collector/event```  
+* Splunk HEC Token                 - guid security token for Splunk HEC  
    Example: ```a77fdc21-0861-4d8b-941c-e1b4c556b4fb```
 
+## Resources Deployed
 
+The following resources are deployed:
+
+| Name                     |  Type                |
+|--------------------------|----------------------|
+| NsgToSplunk              | App Service          |
+| NsgSplunk-Hp-xxxxxxxxxx  | App Service Plan     |
+| NsgSplunk-Ins-xxxxxxxxxx | Application Insights |
+| nsgsplunkxxxxxxxxxxxxxx  | Storage Account      | 
+
+The xxx... is a unique string composed using the subscription ID and the resource group ID.
+
+## Billing
+
+Kindly note that the resources deployed above are chargeable and the cost for these will be added by Microsoft to your Azure billing.
+
+## Deployment Errors
+In case of any deployment errors:
+* Note down the details of the errors from "Notifications".
+* Delete the resources created (to avoid billing)
+* Contact Positka
+
+## Operational Errors
+In case of any operational errors:
+* Note down the details of the errors from the Application Insights Service.
+* Contact Positka.
