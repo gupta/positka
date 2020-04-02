@@ -27,14 +27,14 @@
         },
         "nsgSourceAccount": {
             "type": "string",
-            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=nsg9storage;AccountKey=slBW4wem9KCI0P5Qbwy5xxK3wbW+xrhMpNmMtliLEE46UBNDUORitGzoy+sQTPm8QE2PkIZy997BzdKNMGIeGA==;EndpointSuffix=core.windows.net",
+            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=test1test1foramit;AccountKey=VbsgIL7OTeZrey07IPnAhNm5lYDvrHs/F8hMVn+ZMR58bbr1MrgXcLz1VPBv5skDOzWlDpIihZIwoLMAZ8mjqQ==;EndpointSuffix=core.windows.net",
             "metadata": {
                 "description": "Mandatory storage account connection string for NSG flow log data."
             }
         },
         "splunkHecAddress": {
             "type": "string",
-            "defaultValue": "http://12b2ce23.ngrok.io/services/collector/event",
+            "defaultValue": "http://6fd9c473.ngrok.io/services/collector/event",
             "metadata": {
                 "description": "The IP or DNS address of Splunk HEC port. Format: http//IP_ADDRESS/services/2collector/event"
             }
@@ -53,7 +53,7 @@
         "storageAccountName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "appInsightsName": "[concat('NsgSplunk-Ins-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-        "packageURL": "https://clientdeployments.blob.core.windows.net/positka/NsgToSplunk.zip?si=PositkaBeta&sv=2019-02-02&sr=b&sig=yhaVFP7l5EM2IuV3%2BDp%2F4u1IQ9b8eNKd%2BHS1E0Zv0CU%3D",
+        "packageURL": "https://clientdeployments.blob.core.windows.net/positka/NsgToSplunk.zip?sp=rl&st=2020-03-01T22:50:38Z&se=2020-05-01T10:50:00Z&sv=2019-02-02&sr=b&sig=GVcjXDHf83Qorlvaae1%2Fq4WcMXEWIlrTC2rbhOLA4y8%3D",
         "varApplicationName": "NsgToSplunk",
         "varVendor": "Positka"
     },
