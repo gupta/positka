@@ -48,16 +48,12 @@
         }
     },
     "variables": {
-        "nsgStorageAccountStartIndex": "[add(12, indexOf(parameters('nsgSourceAccount'), 'AccountName='))]",
-        "nsgStorageAccountEndIndex": "[indexOf(parameters('nsgSourceAccount'), ';AccountKey=')]",
-        "nsgStorageAccountLength": "[sub(variables('nsgStorageAccountEndIndex'), variables('nsgStorageAccountStartIndex'))]",
         "functionAppName": "NsgToSplunk",
         "hostingPlanName": "[concat('NsgSplunk-Hp-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
         "storageAccountName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "appInsightsName": "[concat('NsgSplunk-Ins-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
-        "nsgStorageAccount": "[substring(variables('nsgStorageAccountStartIndex'), variables('nsgStorageAccountLength'))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'), variables('nsgStorageAccountEndIndex'))]",
-        "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().id, '/', variables('nsgStorageAccount'), '/FuncNsgBlobCapture.zip')]",
+        "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().id, '/FuncNsgBlobCapture.zip')]",
         "varApplicationName": "NsgToSplunk",
         "varVendor": "Drona Labs Inc."
     },
