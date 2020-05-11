@@ -1,4 +1,4 @@
-# Positka: NSG Flow Logs to Splunk 
+# Drona Labs Inc.: NSG Flow Logs to Splunk 
 
 
 The button below automates the process of deploying an Azure Function in your Azure account.
@@ -29,7 +29,6 @@ You need to provide the following parameters for the function to operate properl
 * Splunk HEC Token                 - guid security token for Splunk HEC  
    Example: ```a77fdc21-0861-4d8b-941c-e1b4c556b4fb```
 
-*Some sample values (that I was using for testing) have been left as default values. Will remove them later.*
 
 ## Resources Deployed
 
@@ -53,9 +52,9 @@ Kindly note that the Azure resources deployed above are chargeable and the cost 
 In case of any deployment errors:
 * Note down the details of the errors from "Notifications".
 * Delete the resources created (to avoid billing)
-* Contact Positka
+* Contact Drona Labs
 
 ## Operational Errors
 In case of any operational errors:
 * Note down the details of the errors from the Application Insights Service.
-* Contact Positka.
+* Contact Drona Labs
