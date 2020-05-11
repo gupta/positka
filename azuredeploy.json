@@ -27,7 +27,7 @@
         },
         "nsgSourceAccount": {
             "type": "string",
-            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=nsgflowlog99;AccountKey=mEl9z/7DI0lg8yNeVDFxNj/qQonsYM1CQfTdYom1z6k3iYgG8lv7syoWhuHoS0X5SULsbuG0uELtcf1ez8hghg==;EndpointSuffix=core.windows.net",
+            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=storagefornsg;AccountKey=b/fInew0KaExrlekHXO/IRhmT/dQaYhau9hSJ6BTaVC0q3It73fgGLatG9AdyxMASDzZyLqSqHa1OkSuYncjFA==;EndpointSuffix=core.windows.net",
             "metadata": {
                 "description": "Mandatory storage account connection string for NSG flow log data."
             }
