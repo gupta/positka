@@ -27,14 +27,14 @@
         },
         "nsgSourceAccount": {
             "type": "string",
-            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=nsg9storage;AccountKey=slBW4wem9KCI0P5Qbwy5xxK3wbW+xrhMpNmMtliLEE46UBNDUORitGzoy+sQTPm8QE2PkIZy997BzdKNMGIeGA==;EndpointSuffix=core.windows.net",
+            "defaultValue": "DefaultEndpointsProtocol=https;AccountName=nsgflowlog99;AccountKey=mEl9z/7DI0lg8yNeVDFxNj/qQonsYM1CQfTdYom1z6k3iYgG8lv7syoWhuHoS0X5SULsbuG0uELtcf1ez8hghg==;EndpointSuffix=core.windows.net",
             "metadata": {
                 "description": "Mandatory storage account connection string for NSG flow log data."
             }
         },
         "splunkHecAddress": {
             "type": "string",
-            "defaultValue": "http://055b8799.ngrok.io/services/collector/event",
+            "defaultValue": "http://0efb1213.ngrok.io/services/collector/event",
             "metadata": {
                 "description": "The IP or DNS address of Splunk HEC port. Format: http//IP_ADDRESS/services/2collector/event"
             }
