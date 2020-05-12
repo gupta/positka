@@ -58,3 +58,6 @@ In case of any deployment errors:
 In case of any operational errors:
 * Note down the details of the errors from the Application Insights Service.
 * Contact Drona Labs
+
+
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fgupta%2Fpositka%2Fmaster%2Ftest.json)
