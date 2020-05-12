@@ -1,54 +1,23 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-      "identity": {
-        "type": "string"
-      },
-      "name":{
-        "type": "string",
-        "defaultValue": "'John Dole'"
-      },
-      "utcValue": {
-        "type": "string",
-        "defaultValue": "[utcNow()]"
-      }
+    "parameters": {},
+    "variables": {
+        "TemplateUri": "https://pipelinetrigger20200511213020.azurewebsites.net/api/runPipeline?code=etCVDUO3CPajgMW72m/iczw1/FKcAXsIUNSBCQ1upeLbNWTzyE/MfQ==&name=rhea"
     },
     "resources": [
-      {
-        "type": "Microsoft.Resources/deploymentScripts",
-        "apiVersion": "2019-10-01-preview",
-        "name": "runPowerShellInlineWithOutput",
-        "location": "[resourceGroup().location]",
-        "kind": "AzurePowerShell",
-        "identity": {
-          "type": "userAssigned",
-          "userAssignedIdentities": {
-            "[parameters('identity')]": {
+        {
+            "name": "myNestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-06-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('TemplateUri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters":  {}
             }
-          }
-        },
-        "properties": {
-          "forceUpdateTag": "[parameters('utcValue')]",
-          "azPowerShellVersion": "3.0",
-          "scriptContent": "
-            param([string] $name)
-            $output = 'Hello {0}' -f $name
-            Write-Output $output
-            $DeploymentScriptOutputs = @{}
-            $DeploymentScriptOutputs['text'] = $output
-          ",
-          "arguments": "[concat('-name ', parameters('name'))]",
-          "timeout": "PT1H",
-          "cleanupPreference": "OnSuccess",
-          "retentionInterval": "P1D"
         }
-      }
-    ],
-    "outputs": {
-      "result": {
-        "value": "[reference('runPowerShellInlineWithOutput').outputs.text]",
-        "type": "string"
-      }
-    }
+    ]
 }
