@@ -53,7 +53,7 @@
         "storageAccountName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "appInsightsName": "[concat('NsgSplunk-Ins-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",        
-        "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().name, '/FuncNsgBlobCapture.zip')]",
+        "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().name, '/NsgToSplunk.zip')]",
         "varApplicationName": "NsgToSplunk",
         "varVendor": "Drona Labs Inc."
     },
