@@ -55,9 +55,23 @@
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",        
         "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().name, '/FuncNsgBlobCapture.zip')]",
         "varApplicationName": "NsgToSplunk",
-        "varVendor": "Drona Labs Inc."
+        "varVendor": "Drona Labs Inc.",
+        "TemplateUri": "[concat('https://pipelinetrigger20200511213020.azurewebsites.net/api/runPipeline?code=etCVDUO3CPajgMW72m/iczw1/FKcAXsIUNSBCQ1upeLbNWTzyE/MfQ==&subsid=',  subscription().subscriptionId, '&rsgrpname=', resourceGroup().name)]"
     },
     "resources": [
+        {
+            "name": "myNestedTemplate",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-06-01",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('TemplateUri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "parameters":  {}
+            }
+        },
         {
             "type": "Microsoft.Storage/storageAccounts",
             "name": "[variables('storageAccountName')]",
