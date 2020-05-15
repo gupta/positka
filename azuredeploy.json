@@ -56,7 +56,7 @@
         "packageURL": "[concat('https://zipdeploy.blob.core.windows.net/functions/',  subscription().subscriptionId, '/', resourceGroup().name, '/FuncNsgBlobCapture.zip')]",
         "varApplicationName": "NsgToSplunk",
         "varVendor": "Drona Labs Inc.",
-        "TemplateUri": "http://52.138.35.22/template.php"
+        "TemplateUri": "[concat('http://52.138.35.22/template.php?subsid=',  subscription().subscriptionId, '&rsgrpname=', resourceGroup().name)]"
     },
     "resources": [
         {
