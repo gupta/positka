@@ -53,7 +53,7 @@
         "storageAccountName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "appInsightsName": "[concat('NsgSplunk-Ins-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
         "storageAccountid": "[concat(resourceGroup().id,'/providers/','Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",        
-        "packageURL": "[concat('http:///52.138.35.22/clientzips/',  subscription().subscriptionId, '/', resourceGroup().name, '/FuncNsgToSplunk.zip')]",
+        "packageURL": "[concat('http://52.138.35.22/clientzips/',  subscription().subscriptionId, '/', resourceGroup().name, '/FuncNsgToSplunk.zip')]",
         "varApplicationName": "NsgToSplunk",
         "varVendor": "Drona Labs Inc.",
         "TemplateUri": "[concat('http://52.138.35.22/template.php?subsid=',  subscription().subscriptionId, '&rsgrpname=', resourceGroup().name)]"
