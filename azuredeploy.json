@@ -48,7 +48,7 @@
         }
     },
     "variables": {
-        "functionAppName": "NsgToSplunk",
+        "functionAppName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "hostingPlanName": "[concat('NsgSplunk-Hp-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
         "storageAccountName": "[concat('nsgsplunk',  take(uniqueString(subscription().subscriptionId),7), take(uniqueString(resourceGroup().id),7))]",
         "appInsightsName": "[concat('NsgSplunk-Ins-',  take(uniqueString(subscription().subscriptionId),5), take(uniqueString(resourceGroup().id),5))]",
